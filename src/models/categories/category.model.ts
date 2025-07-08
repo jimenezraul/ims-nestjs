@@ -9,6 +9,9 @@ export class Category extends Model<Category> {
   @Column(DataType.TEXT)
   declare description: string;
 
-  @HasMany(() => Product)
+  @HasMany(() => Product, {
+    onDelete: 'CASCADE',
+    hooks: true, 
+  })
   declare products: Product[];
 }
